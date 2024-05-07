@@ -1,5 +1,5 @@
 # ETL-Pipeline-With-Apache-Airflow-Snowflake-and-AWS
-We build an ETL pipeline using Apache Airflow, Snowflake, and AWS Services. The pipeline fetches news related to a specific topic using news API via Airflow; then, the data is saved on AWS S3 in a parquet format, and the S3 bucket will be connected to the Snowflake.
+We build an ETL pipeline using Apache Airflow, Snowflake, and AWS Services. Using Airflow, the pipeline fetches All articles about NBA news from the last month, sorted by recent; then, the data is saved on AWS S3 in a parquet format, and the S3 bucket will be connected to the Snowflake.
 ![ETL-Pipeline-With-Apache-Airflow-Snowflake-and-AWS](https://github.com/gakas14/ETL-Pipeline-With-Apache-Airflow-Snowflake-and-AWS/assets/74584964/f4ac0308-97e2-4fce-821b-139e4b503163)
 
 
