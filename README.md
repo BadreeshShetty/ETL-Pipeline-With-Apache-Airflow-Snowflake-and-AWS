@@ -120,4 +120,9 @@ list @News_DB.PUBLIC.my_s3_parquet_stage;
 
 ## 3. Create an airflow connection. 
 
+<img width="1261" alt="Screen Shot 2024-05-08 at 1 24 29 PM" src="https://github.com/gakas14/ETL-Pipeline-With-Apache-Airflow-Snowflake-and-AWS/assets/74584964/daaa98ef-7612-49ec-8e8c-b24fe094930f">
+
+<img width="1246" alt="Screen Shot 2024-05-08 at 1 24 40 PM" src="https://github.com/gakas14/ETL-Pipeline-With-Apache-Airflow-Snowflake-and-AWS/assets/74584964/b611c875-2bdb-4834-97a2-dee1448976c2">
+
 #### Run the airflow dags. 
+<img width="1250" alt="Screen Shot 2024-05-08 at 1 29 34 PM" src="https://github.com/gakas14/ETL-Pipeline-With-Apache-Airflow-Snowflake-and-AWS/assets/74584964/0380b6cc-7806-498c-915c-919d1c2a0555">
