@@ -28,7 +28,7 @@ We build an ETL pipeline using Apache Airflow, Snowflake, and AWS Services. Usin
  virtualenv venv 
  source venv/bin/activate
 
- pip install "apache-airflow[postgres]==2.5.0" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.5.0/constraints-3.7.txt"
+ pip install "apache-airflow[postgres]==2.5.0" --constraint "https://github.com/gakas14/ETL-Pipeline-With-Apache-Airflow-Snowflake-and-AWS/blob/main/requirements.txt"
  pip install pandas apache-airflow-providers-snowflake==2.1.0 snowflake-connector-python==2.5.1 snowflake-sqlalchemy==1.2.5
  pip3  install pyarrow fastparquet
 
@@ -78,7 +78,41 @@ airflow scheduler
  ```
 
 #### Run the airflow server. 
+```
+use COMPUTE_WH;
 
+-Create Database
+create database if not exists News_db;
+
+--use the database
+use news_db;
+
+CREATE OR REPLACE file format News_DB.Public.parquet_format
+    type = parquet;
+
+-- Create a storage integration object
+create or replace storage integration s3_int
+  TYPE = EXTERNAL_STAGE
+  STORAGE_PROVIDER = S3
+  ENABLED = TRUE 
+  STORAGE_AWS_ROLE_ARN = 'arn:aws:iam::***********:role/Snowflake_role'
+  STORAGE_ALLOWED_LOCATIONS = ('s3://"s3 bucket"/')
+  --COMMENT = 'This an optional comment'
+
+-- See storage integration properties to fetch external_id so we can update it in S3
+DESC integration s3_int;
+
+-- Create stage object with integration object & file format object
+CREATE OR REPLACE stage News_DB.Public.my_s3_parquet_stage
+    URL = 's3://"s3 bucket"/'
+    STORAGE_INTEGRATION = s3_int
+    FILE_FORMAT = News_DB.Public.parquet_format
+
+    
+--check the data present in S3
+list @News_DB.PUBLIC.my_s3_parquet_stage;
+
+```
 
 ## 2. Set the snowflake connection 
 
