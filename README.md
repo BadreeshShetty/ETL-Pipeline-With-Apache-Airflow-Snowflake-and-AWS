@@ -16,6 +16,14 @@ We build an ETL pipeline using Apache Airflow, Snowflake, and AWS Services. Usin
 #### Edit the inbound rules by allowing all traffic from anywhere 
 
 #### Ssh into the EC2, then run the different commands 
+'''
+ sudo apt update
+ sudo apt install python3-pip
+ sudo apt install sqlite3
+ sudo apt-get install libpq-dev
+ pip3 install --upgrade awscli
+ 
+'''
 
 #### Run the airflow server. 
 
