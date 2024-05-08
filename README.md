@@ -66,6 +66,10 @@ We build an ETL pipeline using Apache Airflow, Snowflake, and AWS Services. Usin
 -- Copy command--
  scp -i /directory/to/abc.pem /your/local/file/to/copy user@ec2-xx-xx-xxx-xxx.compute-1.amazonaws.com:path/to/file
 
+ ```
+
+#### Run the airflow server. 
+```
  Execute the below code to start the server:
 ------------------------------------------------
 airflow db init
@@ -75,9 +79,9 @@ Open a new terminal & execute the below commands:
 ----------------------------------------------------------------------------------------
 source venv/bin/activate
 airflow scheduler
- ```
+```
 
-#### Run the airflow server. 
+## 2. Set the snowflake connection 
 ```
 use COMPUTE_WH;
 
@@ -113,9 +117,6 @@ CREATE OR REPLACE stage News_DB.Public.my_s3_parquet_stage
 list @News_DB.PUBLIC.my_s3_parquet_stage;
 
 ```
-
-## 2. Set the snowflake connection 
-
 
 ## 3. Create an airflow connection. 
 
